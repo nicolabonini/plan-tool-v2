@@ -2,66 +2,39 @@
 <html>
   <head>
     <title>Plan Project Tool</title>
-    <!--
-    - Gli stili si applicano all'interno del "title".
-    - All'intenro dello "style" si crea una legenda di stili a cui tutto il  programma HTML farà riferimento.
-    - Ogni "style" è composto di due parti
-      > la proprietà che vuoi cambiare (eg. 'font')
-    - id: assegnare un 'id' ad un'immagine è come nominarla, questo può      essere utile per applicare degli stili esclusimanete ad una singola immagine. L'ientifier 'id' può essere colegato ad un unico elemento nella pagina.
-    - #: utilizzato per applicare lo stile ad un elemento specifico, ad esempio ad un'immagine.
-    - Object fit: rimodella un'immagine per non farla sembrare 'stretchata'.
-    - div: tag utilizzato per formattare il testo all'interno di un '<p></p>' (ad esempio i marginni). Ad un <div></div> tag può essere applicato un 'id' ed essere utilizzato nell'applicazione degli 'style'.
-    - L'identifier 'class' può essere collegato a più elemento nella pagina.
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- 
+    - Gli 'style' sono utilizzati scaricando dal 'link' sopra una libreria CSS con stuli già preconfigurati ed applicando solo le relative classi per l'utilizzo degli stili. Le classi si trovano al seguente link: 'https://getbootstrap.com/docs/5.3/getting-started/introduction/'
     -->
     <style>
-      h1 {
-        font-size: 40px;
-        font-family: Roboto;
-        font-weight: normal;
-        color: rgb(100, 100, 100);
-        text-align: center;
-      }
-
-   #banner {
-        width: 100%;
+      #banner {
         height: 360px;
+        width: 100%;
         object-fit: cover;
-      }
-
-      h2 {
-        font-size: 32px;
-        font-family: Roboto;
-        font-weight: normal;
-        color: rgb(100, 100, 100);
-        text-align: center;
-      }
-
-      .bodytext {
-        font-family: Roboto;
-        font-weight: normal;
-        color: rgb(80, 80, 80);
-      }
-
-      #container {
-        max-width: 1000px;
-        margin: 0 auto 0 auto;
       }
     </style>
   </head>
   <body>
-    <div id = "container">
-      <h1>Jovian Carrers</h1>
-      <img id = "banner" src = "https://plan-tool-project--nicolabonini.repl.co/static/banner.jpg">
-      <h2>About Jovian</h2>
-      <p class = "bodytext">
+    <div class = "container">
+      <h1 class = "text-center mt-2 mb-4">{{company_name}} Carrers</h1>
+      <img class = "img-fluid" id = "banner" src = "https://plan-tool-project--nicolabonini.repl.co/static/banner.jpg">
+      <h2 class = "text-center mt-2 mt-4">About Jovian</h2>
+      <p class = "lead">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-      <h2>Open Positions</h2>
-      <p class = "bodytext">TO DO - Show the jobs here</p>
-      <div style = "text-align: center;">
-        <button>Contact Us</button>
-        <p>Copyright 2022, Jovian</p>
+      <h2 class = "text-center">Open Positions</h2>
+      <p>
+        {% for job in jobs %}
+          {% include 'jobitem.html' %}
+        {% endfor %}
+      </p>
+      <div class = "text-center">
+        <button class = "btn btn-danger btn-lg">Contact Us</button>
+        <p class = "mt-4">Copyright 2022, Jovian</p>
       </div>
     </div>
+    </script>
   </body>
 </html>
