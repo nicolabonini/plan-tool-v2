@@ -25,7 +25,7 @@ JOBS = [
     'id' : 4,
     'title' : 'Back End Engineer',
     'location': 'San Francisco, US',
-    #'salary' : '$ 200.000'
+    'salary' : '$ 200.000'
   },
 ]
 
@@ -33,7 +33,7 @@ JOBS = [
 def hello_world ():
   return render_template ('home.html',
                           jobs = JOBS,
-                         company_name = 'Jovian'
+                         company_name = 'Elisa'
                          )
 @app.route ("/api/jobs")
 def list_jobs ():
